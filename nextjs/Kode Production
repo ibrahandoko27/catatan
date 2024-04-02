@@ -1,0 +1,4 @@
+yarn run build = untuk menjalankan production , hasil kode sebelumnya tidak akan di tampilkan di ui
+yarn run start = untuk menjalankan ui
+
+apabila ingin menjalankan kode yang sudah di perbaiki maka ketik kembali " yarn run build " dan jalankan kembali " yarn run start"
