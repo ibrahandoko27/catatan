@@ -1,0 +1,49 @@
+
+'use client'
+
+import { Burger, Drawer, Group, Text} from "@mantine/core";
+import { useDisclosure } from '@mantine/hooks';
+import { Box } from "@mantine/core";
+import Image from "next/image";
+import Link from "next/link";
+
+
+
+
+export const CustomHeader = () => {
+
+   const [burger, burgerAction]= useDisclosure();
+
+   const burgerClicked=()=>{
+       if(burger)burgerAction.close();
+       else burgerAction.open();
+   }
+    return (
+        <header style={{height:'70px', margin:'0 20px'}} > 
+            <Group align="center" justify="space-between" style={{height:'100%'}} >
+                <Group  style={{ paddingLeft:'90px'}} >
+                    <Box>
+                        <Image src="/AF.png" alt="logo" width={50} height={50} />
+                    </Box>
+                    <div style={{paddingLeft:8}}>
+                        <h1>JuniorDev</h1>
+                    </div>
+                </Group>
+                <Group gap={60} visibleFrom='sm' pb={15} pr={20}>
+                    <Link href='/'>Home</Link>
+                    <Text>About</Text>
+                    <Text>Contact</Text>
+                </Group>
+                <Burger opened={burger} onClick={burgerClicked} hiddenFrom="sm" style={{paddingBottom:40}}/>
+                
+                <Drawer opened ={burger} onClose={burgerClicked} title="Brand" size="100%" >
+                    <Box mt={30}>
+                        <Text mt={30}>Home</Text>
+                        <Text mt={30}>About</Text>
+                        <Text mt={30}>Contact</Text>
+                    </Box>
+                </Drawer>
+            </Group>
+        </header>
+    );
+}
