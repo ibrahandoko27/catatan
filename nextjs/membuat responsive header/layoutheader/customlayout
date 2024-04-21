@@ -1,0 +1,16 @@
+
+import { AppShellHeader, AppShellMain, AppShell} from "@mantine/core"
+import { CustomHeader } from "./components/customheader";   
+
+
+
+export const CustomLayout = ({children}: any) => {
+    return (
+       <AppShell>
+        <AppShellHeader >
+            <CustomHeader/>
+        </AppShellHeader>
+        <AppShellMain>{children}</AppShellMain>
+       </AppShell>
+    );
+}
